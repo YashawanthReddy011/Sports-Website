@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function Gallery() {
   const images = [
@@ -98,35 +98,51 @@ export default function Gallery() {
       src: "/images/im23.jpg",
       title: "Ayudha Pooja in college"
     },
-    {
-      src: "/images/im24.jpg",
-      title: "Photo 25"
-    },
   ];
+
+  const [highlighted, setHighlighted] = useState(null);
 
   return (
     <div
-      className="p-8 bg-cover bg-center bg-no-repeat min-h-screen"
+      className="p-8 min-h-screen bg-gradient-to-br from-blue-50 via-pink-50 to-cyan-100 bg-cover bg-center bg-no-repeat"
       style={{
-  backgroundImage: `url('/images/bg-background.jpg')`,
-  backgroundColor: '#6280c0ff' // fallback color
-}}
-
+        backgroundImage: `url('/images/bg-background.jpg')`,
+        backgroundColor: '#b16048ff'
+      }}
     >
-      <h2 className="text-3xl font-bold text-pink mb-6 text-center drop-shadow-lg">Gallery</h2>
+      <h2 className="text-5xl md:text-6xl font-extrabold text-center mb-6 bg-gradient-to-r from-blue-700 via-cyan-500 to-pink-500 bg-clip-text text-transparent drop-shadow-2xl tracking-tight">
+        Gallery
+      </h2>
+      <p className="text-center text-xl mb-12 font-semibold text-cyan-800 bg-white/80 rounded-xl px-4 py-2 inline-block shadow">
+        📸 More images from friends coming soon!<br className="hidden md:inline" /> Stay tuned for new memories and moments.
+      </p>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-1 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10">
         {images.map((item, index) => (
           <div
             key={index}
-            className="bg-white rounded-lg shadow hover:shadow-lg transition duration-300"
+            className={`bg-white/95 rounded-3xl shadow-2xl hover:shadow-pink-200 transition duration-300 flex flex-col relative border-2 ${
+              highlighted === index ? 'border-pink-400 ring-4 ring-cyan-300 ring-offset-2 scale-105 z-10' : 'border-transparent'
+            }`}
           >
-            <img
-              src={item.src}
-              alt={item.title}
-              className="w-full h-[300px] object-cover rounded-t-lg"
-            />
-            <div className="p-3 text-center font-semibold text-white-700">
+            <div className="relative group">
+              <img
+                src={item.src}
+                alt={item.title}
+                className="w-full h-64 object-cover rounded-t-3xl group-hover:scale-105 transition-transform duration-300"
+              />
+              <button
+                className="absolute top-4 right-4 text-3xl text-pink-400 hover:text-cyan-500 transition-colors z-10 bg-white/80 rounded-full p-1 shadow"
+                onMouseEnter={() => setHighlighted(index)}
+                onMouseLeave={() => setHighlighted(null)}
+                onClick={() => setHighlighted(index)}
+                aria-label="Highlight image"
+                tabIndex={0}
+              >
+                <span className="drop-shadow-lg">&rarr;</span>
+              </button>
+            </div>
+            <div className="p-4 text-center font-semibold text-blue-900 bg-gradient-to-r from-pink-100 via-purple-100 to-blue-100 rounded-b-3xl min-h-[4.5rem] flex items-center justify-center text-base md:text-lg">
               {item.title.split('\n').map((line, idx) => (
                 <React.Fragment key={idx}>
                   {line}
@@ -136,6 +152,11 @@ export default function Gallery() {
             </div>
           </div>
         ))}
+        {/* Placeholder for upcoming images */}
+        <div className="bg-gradient-to-r from-pink-50 via-purple-50 to-blue-50 rounded-3xl shadow-xl flex flex-col items-center justify-center min-h-[20rem] border-2 border-dashed border-cyan-300">
+          <span className="text-7xl mb-2 text-cyan-400 animate-bounce">+</span>
+          <span className="text-xl text-pink-700 font-bold text-center">More images coming soon…</span>
+        </div>
       </div>
     </div>
   );

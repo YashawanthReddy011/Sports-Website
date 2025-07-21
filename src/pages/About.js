@@ -2,67 +2,76 @@ import React from 'react';
 
 export default function About() {
   return (
-    <div
-      className="bg-cover bg-center bg-no-repeat min-h-screen py-10 px-4"
-      style={{ backgroundImage: "url('/images/about-bg.jpg')",
-         backgroundColor: '#763a73ff' // fallback color
-       }}
-    >
-      <div className="max-w-6xl mx-auto bg-white bg-opacity-80 p-8 rounded-xl shadow-lg">
-        <h2 className="text-3xl font-bold text-blue-700 mb-6">About Us</h2>
-        <div className="text-gray-800 leading-relaxed space-y-4">
-          <p>Over the last 11 years, KPT Mangaluru has established itself as a powerhouse in inter-polytechnic sports across Karnataka.</p>
-          <p>Their journey is one of perseverance, discipline, and sustained excellence in both athletics and team sports.</p>
-          <p>The institute's sports department has consistently groomed athletes who have not only excelled individually but also contributed to the team’s collective glory.</p>
-          <p>Every year, KPT Mangaluru has fielded strong teams in major tournaments including athletics, football, volleyball, and kabaddi.</p>
-          <p>Their dominance is particularly evident in the State-level Inter-Polytechnic Sports Meet, which is held annually across Karnataka.</p>
-          <p>For 11 consecutive years, KPT Mangaluru has either won the championship or secured top positions, proving their consistency.</p>
-          <p>The athletes are selected through rigorous trials and trained year-round under the guidance of expert coaches.</p>
-          <p>These training programs focus not only on physical conditioning but also on strategic planning and teamwork.</p>
-          <p>The institution conducts daily morning and evening practice sessions to instill discipline and build stamina.</p>
-          <p>One of the key factors in their success is the department's emphasis on mental toughness and emotional resilience.</p>
-          <p>In each of the past 11 years, KPT has earned recognition in multiple categories, including relay races, long jump, and group sports like football and volleyball.</p>
-          <p>The sports department ensures equal attention is given to both boys' and girls' teams.</p>
-          <p>Several female athletes from KPT Mangaluru have also represented the institution at state and national levels.</p>
-          <p>With every win, the confidence of the players has grown, which has directly contributed to their ability to perform under pressure.</p>
-          <p>The support system from the college — including administration, faculty, and parents — plays a crucial role in motivating the athletes.</p>
-          <p>The department ensures that students maintain a healthy balance between academics and sports through personalized academic support.</p>
-          <p>Nutrition, injury prevention, and recovery techniques are also part of the training curriculum.</p>
-          <p>Over the years, the college has developed excellent infrastructure, including tracks, courts, and gyms.</p>
-          <p>This infrastructure allows students to practice in conditions similar to professional environments.</p>
-          <p>The college has also hosted inter-polytechnic meets, showing their commitment to not just participation but leadership in sports development.</p>
-          <p>Guest lectures from sports psychologists and professional athletes help shape the mindset of students.</p>
-          <p>KPT Mangaluru believes that success in sports teaches lifelong values such as leadership, humility, and perseverance.</p>
-          <p>These values are visibly demonstrated by their alumni, many of whom have become coaches, PE teachers, or professional players.</p>
-          <p>The alumni also often return to inspire current students, creating a strong sense of community and continuity.</p>
-          <p>KPT’s teams are known for their sportsmanship, discipline, and respectful behavior on and off the field.</p>
-          <p>They consistently earn admiration not only for their victories but also for their ethical conduct during matches.</p>
-          <p>In every tournament over the past 11 years, KPT Mangaluru has featured prominently on the medals and trophies list.</p>
-          <p>Their ability to adapt to different playing conditions and opponents shows their strategic depth.</p>
-          <p>The coaching staff reviews every match, helping players learn from both victories and defeats.</p>
-          <p>One of their most celebrated achievements came in the latest 44th State-level Inter-Polytechnic Meet.</p>
-          <p>KPT Mangaluru emerged as the Overall Champion with a remarkable 52 points.</p>
-          <p>This victory was especially meaningful because it took place at the prestigious Chamundi Vihar Stadium in Mysuru.</p>
-          <p>The students outperformed nearly all other teams in both track and group events.</p>
-          <p>They secured first-place finishes in relays, sprints, and even field events like discus and javelin.</p>
-          <p>Their coordination in team sports like kabaddi and football was unmatched.</p>
-          <p>The Sulya KVG Polytechnic team came second, with 21 points — far behind KPT’s dominating 52.</p>
-          <p>This wide gap in points highlights the exceptional performance of KPT’s athletes.</p>
-          <p>The team celebrated with pride, hoisting the trophy and posing for photographs, as seen in the news image.</p>
-          <p>The victory wasn’t just about athleticism — it represented years of planning, hard work, and collective vision.</p>
-          <p>It was a proud moment for the entire KPT family — students, staff, alumni, and parents.</p>
-          <p>The Principal and Sports Director congratulated the team and announced further support for expanding sports facilities.</p>
-          <p>This win added to their already impressive trophy cabinet, reinforcing their dominance.</p>
-          <p>The team members became instant heroes among their peers and younger students.</p>
-          <p>Their success is inspiring more students to join sports and maintain a disciplined, healthy lifestyle.</p>
-          <p>The department is already preparing for future tournaments to defend their title and aim even higher.</p>
-          <p>The focus is now on developing more players for state and national selection.</p>
-          <p>With consistent investment in coaching, fitness, and infrastructure, KPT’s reign seems far from over.</p>
-          <p>The team’s journey over 11 years proves that discipline and passion always yield results.</p>
-          <p>They’ve built a sporting legacy that inspires not just their college, but all of Karnataka’s polytechnic students.</p>
-          <p>With this latest victory, KPT Mangaluru has once again proven that they are the true champions — not just in medals, but in spirit.</p>
+    <div className="bg-gradient-to-br from-blue-100 via-cyan-100 via-60% to-pink-100 min-h-screen">
+      {/* Hero Section */}
+      <section
+        className="relative flex items-center justify-center h-64 md:h-80 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/images/about-bg.jpg')",
+          backgroundColor: '#763a73ff'
+        }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-cyan-700/60 to-pink-700/60 rounded-b-3xl" />
+        <div className="relative z-10 text-center">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-white drop-shadow-lg mb-2">
+            About{' '}
+            <span className="bg-gradient-to-r from-yellow-300 via-pink-400 to-red-400 bg-clip-text text-transparent">
+              KPT Mangalore Sports
+            </span>
+          </h1>
+          <p className="text-lg md:text-xl text-cyan-100 font-medium drop-shadow">
+            Champions in Spirit, Champions in Action
+          </p>
         </div>
-      </div>
+      </section>
+
+      {/* Stats/Highlight Section */}
+      <section className="max-w-5xl mx-auto -mt-16 mb-10 px-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-gradient-to-br from-blue-100 via-white to-cyan-100 rounded-xl shadow-lg p-6 text-center flex flex-col justify-end h-full">
+            <div className="text-4xl font-bold text-blue-700 mb-2 mt-16">11+</div>
+            <div className="text-lg font-medium text-blue-800">Years of Excellence</div>
+          </div>
+          <div className="bg-gradient-to-br from-pink-100 via-white to-yellow-100 rounded-xl shadow-lg p-6 text-center flex flex-col justify-end h-full">
+            <div className="text-4xl font-bold text-pink-600 mb-2 mt-16">52</div>
+            <div className="text-lg font-medium text-pink-700">Points in 44th State Meet</div>
+          </div>
+          <div className="bg-gradient-to-br from-cyan-200 via-blue-100 to-blue-400 rounded-xl shadow-lg p-6 text-center flex flex-col justify-end h-full">
+            <div className="text-lg font-medium text-blue-900 mt-16">State-level Inter-Polytechnic</div>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content */}
+      <section className="max-w-4xl mx-auto bg-[#fdf6e3] p-8 rounded-2xl shadow-lg mb-16">
+        <h2 className="text-3xl font-bold text-blue-700 mb-6 text-center">Our Story</h2>
+        <div className="text-gray-800 leading-relaxed space-y-4 text-justify">
+          <p>
+            Over the last <span className="font-semibold text-blue-700">11 years</span>, <span className="font-semibold text-blue-700">KPT Mangaluru</span> has established itself as a powerhouse in inter-polytechnic sports across Karnataka. Our journey is one of <span className="text-pink-600 font-semibold">perseverance</span>, <span className="text-cyan-700 font-semibold">discipline</span>, and sustained excellence in both athletics and team sports.
+          </p>
+          <p>
+            The institute's sports department has consistently groomed athletes who have excelled individually and contributed to the team’s collective glory. Every year, KPT Mangaluru fields strong teams in major tournaments including <span className="text-blue-700 font-semibold">athletics</span>, <span className="text-pink-600 font-semibold">football</span>, <span className="text-cyan-700 font-semibold">volleyball</span>, and <span className="text-yellow-600 font-semibold">kabaddi</span>.
+          </p>
+          <p>
+            Our dominance is particularly evident in the <span className="text-blue-700 font-semibold">State-level Inter-Polytechnic Sports Meet</span>, held annually across Karnataka. For 11 consecutive years, KPT Mangaluru has either won the championship or secured top positions, proving our consistency.
+          </p>
+          <p>
+            Athletes are selected through rigorous trials and trained year-round under expert coaches, focusing on <span className="text-cyan-700 font-semibold">physical conditioning</span>, <span className="text-pink-600 font-semibold">strategic planning</span>, and <span className="text-yellow-600 font-semibold">teamwork</span>. Daily practice sessions instill discipline and build stamina, while mental toughness and emotional resilience are emphasized.
+          </p>
+          <p>
+            KPT Mangaluru ensures equal attention to both boys' and girls' teams, with several female athletes representing the institution at state and national levels. Our alumni, many of whom have become coaches, PE teachers, or professional players, often return to inspire current students.
+          </p>
+          <p>
+            The latest highlight: KPT Mangaluru emerged as <span className="font-semibold text-pink-600">Overall Champion</span> with a remarkable <span className="text-blue-700 font-bold">52 points</span> at the 44th State-level Inter-Polytechnic Meet, held at Chamundi Vihar Stadium, Mysuru.
+          </p>
+          <p>
+            Our success is built on a foundation of excellent infrastructure, expert coaching, and a strong support system from the college administration, faculty, and parents. We believe that success in sports teaches lifelong values such as <span className="text-cyan-700 font-semibold">leadership</span>, <span className="text-pink-600 font-semibold">humility</span>, and <span className="text-yellow-600 font-semibold">perseverance</span>.
+          </p>
+          <p>
+            With every victory, KPT Mangaluru continues to inspire, proving that discipline and passion always yield results. We are proud to be champions — not just in medals, but in spirit.
+          </p>
+        </div>
+      </section>
     </div>
   );
 }

@@ -56,37 +56,46 @@ const historyData = rawHistoryData.map((entry, index) => ({
 
 const HistoryPage = () => {
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <header className="text-center mb-8">
-        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-cyan-100 via-60% to-pink-100 p-6">
+      <header className="text-center mb-10">
+        <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-blue-700 via-cyan-500 to-pink-500 bg-clip-text text-transparent drop-shadow-lg">
           45&nbsp;Years of Sports Meets
         </h1>
-        <p className="mt-2 text-lg text-gray-600">
+        <p className="mt-2 text-lg text-cyan-700 font-medium">
           Karnataka State Inter‑Polytechnic Timeline
         </p>
       </header>
 
-      <div className="overflow-x-auto">
-        <table className="min-w-full bg-white shadow-lg rounded-xl">
-          <thead className="bg-gray-200">
-            <tr>
-              <th className="px-4 py-3 text-center">#</th>
-              <th className="px-4 py-3 text-left">Academic Year</th>
-              <th className="px-4 py-3 text-left">Host Polytechnic</th>
-              <th className="px-4 py-3 text-left">Venue</th>
-            </tr>
-          </thead>
-          <tbody>
-            {historyData.map((row, idx) => (
-              <tr key={row.id} className={idx % 2 === 0 ? 'bg-gray-50' : 'bg-white'}>
-                <td className="px-4 py-2 text-center font-medium">{row.id}</td>
-                <td className="px-4 py-2">{row.year}</td>
-                <td className="px-4 py-2">{row.host}</td>
-                <td className="px-4 py-2">{row.venue}</td>
+      <div className="max-w-5xl mx-auto bg-white/90 rounded-2xl shadow-xl p-4 md:p-8">
+        <div className="overflow-x-auto rounded-xl">
+          <table className="min-w-full text-sm md:text-base">
+            <thead>
+              <tr className="bg-gradient-to-r from-blue-200 via-cyan-100 to-blue-100">
+                <th className="px-4 py-3 text-center font-bold text-blue-800">#</th>
+                <th className="px-4 py-3 text-left font-bold text-blue-800">Academic Year</th>
+                <th className="px-4 py-3 text-left font-bold text-blue-800">Host Polytechnic</th>
+                <th className="px-4 py-3 text-left font-bold text-blue-800">Venue</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {historyData.map((row, idx) => (
+                <tr
+                  key={row.id}
+                  className={
+                    idx % 2 === 0
+                      ? 'bg-blue-50/60 hover:bg-cyan-100 transition'
+                      : 'bg-pink-50 hover:bg-bronze-50 transition'
+                  }
+                >
+                  <td className="px-4 py-2 text-center font-semibold text-cyan-700">{row.id}</td>
+                  <td className="px-4 py-2 text-blue-900">{row.year}</td>
+                  <td className="px-4 py-2 text-pink-700">{row.host}</td>
+                  <td className="px-4 py-2 text-blue-700">{row.venue}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );
