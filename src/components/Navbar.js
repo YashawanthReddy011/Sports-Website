@@ -8,7 +8,7 @@ export default function Navbar() {
       : "hover:text-yellow-200";
 
   return (
-    <nav className="bg-pink-800 text-white p-4 shadow">
+    <nav className="bg-pink-800 text-white p-4 shadow sticky top-0 z-50">
       <div className="container mx-auto flex flex-wrap justify-between items-center">
         <h1 className="text-xl font-bold">KPT Sports</h1>
         <div className="space-x-4 mt-2 sm:mt-0">

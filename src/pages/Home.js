@@ -64,9 +64,9 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100">
       {/* Header */}
       <section className="relative text-center py-16 bg-gradient-to-r from-blue-200 via-cyan-100 to-blue-300 shadow-md">
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg">
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg animate-slide-fade">
           Welcome to{' '}
-          <span className="bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-700 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-700 bg-clip-text text-transparent animate-shine">
             KPT Mangalore Sports
           </span>
         </h1>
@@ -102,7 +102,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Achievements Section */}
+      {/* Achievements */}
       <section
         className="py-16 px-4 md:px-0 bg-cover bg-center"
         style={{
@@ -135,9 +135,8 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Buttons Section */}
+        {/* Buttons */}
         <div className="flex justify-center mt-10 gap-4">
-          {/* View Highlight Button */}
           <button
             className="px-6 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-full font-semibold shadow hover:from-cyan-500 hover:to-blue-500 transition"
             onClick={() => handleClick(current.image, current.title)}
@@ -145,7 +144,6 @@ export default function Home() {
             View Highlight
           </button>
 
-          {/* ✅ Next Page Button (About page) */}
           <button
             className="px-6 py-2 bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-full font-semibold shadow hover:from-teal-500 hover:to-green-500 transition"
             onClick={() => navigate('/about')}
@@ -155,7 +153,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Image Modal */}
+      {/* Modal */}
       <ImageModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}

@@ -51,7 +51,7 @@ export default function Achievements() {
         <div>
           <h4 className="text-xl font-semibold text-green-700 mb-2">🩺 Medical Bandian Award</h4>
           <ul className="list-disc ml-8 text-base">
-            <li><strong>Boys Category:</strong> K. Kiran Shetty, Final Year Mechanical Branch</li>
+            <li><strong>Boys Category:</strong> k.kishan sheety, Final Year Mechanical Branch</li>
             <li><strong>Girls Category:</strong> Anitha, Final Year Computer Science Branch</li>
           </ul>
         </div>
