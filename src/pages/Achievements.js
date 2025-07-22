@@ -1,6 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Achievements() {
+  const navigate = useNavigate();
+
   return (
     <div
       className="min-h-screen bg-gradient-to-br from-green-50 via-yellow-50 to-cyan-100 bg-cover bg-center bg-no-repeat p-8 overflow-x-auto"
@@ -62,6 +65,16 @@ export default function Achievements() {
             <li className="mt-2 text-green-800 font-bold">🏆 Our college team won the <span className="text-yellow-700">General Championship Trophy</span></li>
           </ul>
         </div>
+      </div>
+
+      {/* Next Page Button */}
+      <div className="flex justify-center mt-10">
+        <button
+          onClick={() => navigate('/results')}
+          className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-semibold shadow hover:from-pink-600 hover:to-purple-600 transition"
+        >
+          Next Page
+        </button>
       </div>
     </div>
   );

@@ -1,6 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Import navigation
 
 export default function Events() {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-100 via-yellow-50 to-cyan-100 p-8">
       <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-10 bg-gradient-to-r from-green-700 via-yellow-500 to-cyan-600 bg-clip-text text-transparent drop-shadow-lg">
@@ -45,6 +48,16 @@ export default function Events() {
             <tr className="hover:bg-green-100 transition"><td className="px-6 py-3">—</td><td className="px-6 py-3">High Jump</td></tr>
           </tbody>
         </table>
+      </div>
+
+      {/* Next Page Button */}
+      <div className="flex justify-center mt-8">
+        <button
+          onClick={() => navigate('/gallery')}
+          className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-semibold shadow hover:from-pink-600 hover:to-purple-600 transition"
+        >
+          Next Page
+        </button>
       </div>
     </div>
   );

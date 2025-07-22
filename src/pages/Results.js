@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import ImageModal from '../components/ImageModal';
 
 const imageMap = {
@@ -19,6 +20,7 @@ const imageMap = {
 export default function Results() {
   const [selectedName, setSelectedName] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleNameClick = (name) => {
     if (imageMap[name]) {
@@ -116,6 +118,17 @@ export default function Results() {
           </tbody>
         </table>
       </div>
+
+      {/* Next Page Button */}
+      <div className="flex justify-center mt-10">
+        <button
+          onClick={() => navigate('/contact')}
+          className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-semibold shadow hover:from-pink-600 hover:to-purple-600 transition"
+        >
+          Next Page
+        </button>
+      </div>
+
       <ImageModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}

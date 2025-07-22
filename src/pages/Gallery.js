@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Gallery() {
+  const navigate = useNavigate();
+
   const images = [
     {
       src: "/images/im25.jpg",
@@ -157,6 +160,16 @@ export default function Gallery() {
           <span className="text-7xl mb-2 text-cyan-400 animate-bounce">+</span>
           <span className="text-xl text-pink-700 font-bold text-center">More images coming soon…</span>
         </div>
+      </div>
+
+      {/* Next Page Button */}
+      <div className="flex justify-center mt-8">
+        <button
+          onClick={() => navigate('/achievements')}
+          className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-semibold shadow hover:from-pink-600 hover:to-purple-600 transition"
+        >
+          Next Page
+        </button>
       </div>
     </div>
   );

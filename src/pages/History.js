@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // ✅ Import navigation
 
 const rawHistoryData = [
   { year: '1977–1978', host: 'S.J. (Govt) Polytechnic', venue: 'Bengaluru' },
@@ -21,14 +22,14 @@ const rawHistoryData = [
   { year: '1994–1995', host: 'Government Polytechnic', venue: 'Bhadravathi' },
   { year: '1995–1996', host: 'Karnataka Government Polytechnic', venue: 'Mangaluru' },
   { year: '1996–1997', host: 'Government Polytechnic', venue: 'Udupi' },
-  { year: '1997–1998', host: 'JSS Women\'s College', venue: 'Mysuru' },
+  { year: "1997–1998", host: "JSS Women's College", venue: "Mysuru" },
   { year: '1998–1999', host: 'BMS College', venue: 'Bengaluru' },
   { year: '1999–2000', host: 'Government College', venue: 'Gulbarga' },
   { year: '2000–2001', host: 'Government College', venue: 'Belagavi' },
   { year: '2001–2002', host: 'Government College', venue: 'Tumakuru' },
   { year: '2002–2003', host: 'JSS (For) College', venue: 'Mysuru' },
-  { year: '2003–2004', host: 'GSS Women\'s College', venue: 'Mysuru' },
-  { year: '2004–2005', host: 'Government Women\'s College', venue: 'Gulbarga' },
+  { year: "2003–2004", host: "GSS Women's College", venue: "Mysuru" },
+  { year: "2004–2005", host: "Government Women's College", venue: "Gulbarga" },
   { year: '2005–2006', host: 'Polytechnic College', venue: 'Belagavi' },
   { year: '2006–2007', host: 'BMS College', venue: 'Bengaluru' },
   { year: '2007–2008', host: 'KLE Society', venue: 'Hubballi' },
@@ -37,7 +38,7 @@ const rawHistoryData = [
   { year: '2010–2011', host: 'DRR College', venue: 'Davangere' },
   { year: '2011–2012', host: 'CB Kore College', venue: 'Chikkodi' },
   { year: '2012–2013', host: 'Sri Devi College', venue: 'Tumakuru' },
-  { year: '2013–2014', host: 'Government Women\'s College', venue: 'Mangaluru' },       
+  { year: "2013–2014", host: "Government Women's College", venue: "Mangaluru" },       
   { year: '2014-2015', host: 'Chikkaballapur', venue: 'Chikkaballapur' },  
   { year: '2015-2016', host: 'G.P.T. Karkala', venue: 'Udupi' },
   { year: '2016-2017', host: 'GPT Ramanagara', venue: 'Ramanagara' },
@@ -48,13 +49,15 @@ const rawHistoryData = [
   { year: '2024-2025', host: 'Karnataka Government Polytechnic', venue: 'Mangaluru' }
 ];
 
-// Generate IDs automatically
-const historyData = rawHistoryData.map((entry, index) => ({
-  id: index + 1,
-  ...entry
+// Add IDs
+const historyData = rawHistoryData.map((entry, idx) => ({
+  id: idx + 1,
+  ...entry,
 }));
 
 const HistoryPage = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-cyan-100 via-60% to-pink-100 p-6">
       <header className="text-center mb-10">
@@ -95,6 +98,16 @@ const HistoryPage = () => {
               ))}
             </tbody>
           </table>
+        </div>
+
+        {/* Next Page Button */}
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={() => navigate('/events')}
+            className="px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-semibold shadow hover:from-pink-500 hover:to-purple-500 transition"
+          >
+            Next Page
+          </button>
         </div>
       </div>
     </div>
