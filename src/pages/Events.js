@@ -50,15 +50,7 @@ export default function Events() {
         </table>
       </div>
 
-      {/* Next Page Button */}
-      <div className="flex justify-center mt-8">
-        <button
-          onClick={() => navigate('/gallery')}
-          className="px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full font-semibold shadow hover:from-pink-600 hover:to-purple-600 transition"
-        >
-          Next Page
-        </button>
-      </div>
+      
     </div>
   );
 }

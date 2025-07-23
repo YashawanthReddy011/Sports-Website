@@ -100,15 +100,7 @@ const HistoryPage = () => {
           </table>
         </div>
 
-        {/* Next Page Button */}
-        <div className="flex justify-center mt-8">
-          <button
-            onClick={() => navigate('/events')}
-            className="px-6 py-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-full font-semibold shadow hover:from-pink-500 hover:to-purple-500 transition"
-          >
-            Next Page
-          </button>
-        </div>
+        
       </div>
     </div>
   );

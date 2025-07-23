@@ -144,12 +144,7 @@ export default function Home() {
             View Highlight
           </button>
 
-          <button
-            className="px-6 py-2 bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-full font-semibold shadow hover:from-teal-500 hover:to-green-500 transition"
-            onClick={() => navigate('/about')}
-          >
-            Next Page
-          </button>
+          
         </div>
       </section>
 
