@@ -60,8 +60,12 @@ export default function Home() {
   const current = achievements[currentIndex];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100 font-sans">
-      
+    <div
+      className="min-h-screen font-sans"
+      style={{
+        backgroundColor: '#FFFDE6', // Cream / Light Ivory (rgb(255, 253, 230))
+      }}
+    >
       {/* Header */}
       <section className="relative text-center py-16 bg-gradient-to-r from-blue-200 via-cyan-100 to-blue-300 shadow-md">
         <motion.h1
@@ -106,12 +110,9 @@ export default function Home() {
         </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent rounded-b-3xl" />
         <div className="relative z-10 text-white text-center">
-          <h2 className="text-2xl md:text-3xl font-bold drop-shadow-lg">
-            Unleashing Potential, One Victory at a Time
-          </h2>
-          <p className="mt-2 text-lg md:text-xl drop-shadow">
-            Explore our achievements and vibrant sports culture
-          </p>
+          <span className="text-2xl md:text-3xl font-extrabold" style={{ color: '#59935aff' }}>
+            Unleashing Potential, One Victory at a Time – Explore our achievements and vibrant sports culture
+          </span>
         </div>
       </section>
 
@@ -146,9 +147,9 @@ export default function Home() {
                   className="mx-auto h-24 w-24 object-cover rounded-full mb-4 border-4 border-blue-200 shadow"
                 />
               </picture>
-              <h3 className="text-2xl font-bold text-blue-800 mb-1">{ach.count}</h3>
-              <p className="text-lg text-gray-700">{ach.label}</p>
-              <div className="mt-2 text-base font-medium text-cyan-700">{ach.title}</div>
+              <h3 className="text-2xl font-bold text-white mb-1 drop-shadow-lg">{ach.count}</h3>
+              <p className="text-lg text-white drop-shadow">{ach.label}</p>
+              <div className="mt-2 text-base font-medium text-white drop-shadow">{ach.title}</div>
             </motion.div>
           ))}
         </div>

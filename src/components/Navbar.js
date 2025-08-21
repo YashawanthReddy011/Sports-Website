@@ -13,20 +13,16 @@ export default function Navbar() {
         
         {/* Logo Group */}
         <div className="flex items-center gap-3">
-          <div className="relative flex items-center">
-            <img
-              src="/images/l1.jpg"
-              alt="Logo 1"
-              className="h-12 w-12 object-contain rounded-full border-2 border-yellow-400 shadow-lg bg-white"
-              style={{ boxShadow: '0 4px 16px 0 rgba(255,215,0,0.25)' }}
-            />
-            <img
-              src="/images/l2.png"
-              alt="Logo 2"
-              className="h-8 w-8 object-contain absolute -bottom-2 -right-3 rounded-full border-2 border-red-400 bg-white shadow"
-              style={{ boxShadow: '0 2px 8px 0 rgba(255,0,0,0.15)' }}
-            />
-          </div>
+          <img
+            src="/images/l1.png"
+            alt="Logo 1"
+            className="h-12 w-12 object-contain"
+          />
+          <img
+            src="/images/l2.png"
+            alt="Logo 2"
+            className="h-12 w-12 object-contain"
+          />
           <h1 className="text-2xl font-extrabold whitespace-nowrap drop-shadow-lg tracking-wider text-yellow-900 bg-gradient-to-r from-yellow-400 via-yellow-200 to-yellow-100 px-3 py-1 rounded-xl border-2 border-yellow-300 shadow">
             KPT <span className="text-red-700">Sports</span>
           </h1>

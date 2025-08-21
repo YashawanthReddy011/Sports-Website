@@ -60,10 +60,11 @@ export default function Results() {
 
   return (
     <div
-      className="min-h-screen bg-gradient-to-br from-blue-50 via-yellow-50 to-cyan-100 bg-cover bg-center bg-no-repeat p-8"
+      className="min-h-screen bg-cover bg-center bg-no-repeat p-8"
       style={{
         backgroundImage: `url('/images/bg-background.jpg')`,
-        backgroundColor: '#283d6bff'
+        backgroundColor: '#FFFDE6', // Cream / Light Ivory (rgb(255, 253, 230))
+        backgroundBlendMode: 'overlay',
       }}
     >
       <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-8 bg-gradient-to-r from-blue-700 via-yellow-500 to-cyan-600 bg-clip-text text-transparent drop-shadow-lg">
@@ -117,8 +118,6 @@ export default function Results() {
           </tbody>
         </table>
       </div>
-
-      
 
       <ImageModal
         isOpen={modalOpen}

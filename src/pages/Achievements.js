@@ -1,13 +1,13 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 
 export default function Achievements() {
   return (
     <div
-      className="min-h-screen bg-gradient-to-br from-green-50 via-yellow-50 to-cyan-100 bg-cover bg-center bg-no-repeat p-8 overflow-x-auto"
+      className="min-h-screen bg-cover bg-center bg-no-repeat p-8 overflow-x-auto"
       style={{
         backgroundImage: "url('/images/bg-achievements.jpg')",
-        backgroundColor: '#6fcbddff'
+        backgroundColor: '#FFFDE6', // Cream / Light Ivory
+        backgroundBlendMode: 'overlay',
       }}
     >
       {/* Heading */}
@@ -17,7 +17,7 @@ export default function Achievements() {
         <span
           className="inline-block px-6 py-2 rounded-xl 
                      bg-gradient-to-r from-[#fff7d6] via-[#ffe599] to-[#ffd699] 
-                     shadow-md border border-yellow-300 text-red-700 font-bold"
+                     shadow-md border border-yellow-300 text-blue-700 font-bold"
         >
           🏅 Achievements
         </span>
@@ -52,7 +52,6 @@ export default function Achievements() {
 
       {/* Detailed Achievements */}
       <div className="bg-gradient-to-br from-yellow-100 via-white to-green-50 p-8 rounded-3xl shadow-xl space-y-6 text-gray-800 max-w-3xl mx-auto">
-        
         <div>
           <h4 className="text-xl font-semibold text-green-700 mb-2">
             ✅ Individual Championship Awards
@@ -86,7 +85,6 @@ export default function Achievements() {
             </li>
           </ul>
         </div>
-
       </div>
     </div>
   );

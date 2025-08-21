@@ -1,5 +1,4 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // ✅ Import navigation
 
 const rawHistoryData = [
   { year: '1977–1978', host: 'S.J. (Govt) Polytechnic', venue: 'Bengaluru' },
@@ -38,8 +37,8 @@ const rawHistoryData = [
   { year: '2010–2011', host: 'DRR College', venue: 'Davangere' },
   { year: '2011–2012', host: 'CB Kore College', venue: 'Chikkodi' },
   { year: '2012–2013', host: 'Sri Devi College', venue: 'Tumakuru' },
-  { year: "2013–2014", host: "Government Women's College", venue: "Mangaluru" },       
-  { year: '2014-2015', host: 'Chikkaballapur', venue: 'Chikkaballapur' },  
+  { year: "2013–2014", host: "Government Women's College", venue: "Mangaluru" },
+  { year: '2014-2015', host: 'Chikkaballapur', venue: 'Chikkaballapur' },
   { year: '2015-2016', host: 'G.P.T. Karkala', venue: 'Udupi' },
   { year: '2016-2017', host: 'GPT Ramanagara', venue: 'Ramanagara' },
   { year: '2017-2018', host: 'Sri Devi Polytechnic', venue: 'Bengaluru' },
@@ -49,17 +48,23 @@ const rawHistoryData = [
   { year: '2024-2025', host: 'Karnataka Government Polytechnic', venue: 'Mangaluru' }
 ];
 
-// Add IDs
-const historyData = rawHistoryData.map((entry, idx) => ({
-  id: idx + 1,
-  ...entry,
+// Add ID to each row
+const historyData = rawHistoryData.map((entry, index) => ({
+  id: index + 1,
+  ...entry
 }));
 
 const HistoryPage = () => {
-
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-cyan-100 via-60% to-pink-100 p-6">
+    <div
+      className="min-h-screen p-6 bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundColor: '#FFFDE6',
+        backgroundImage: "url('/images/bg-background.jpg')",
+        backgroundBlendMode: 'overlay',
+      }}
+    >
+      {/* Page Header */}
       <header className="text-center mb-10">
         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-blue-700 via-cyan-500 to-pink-500 bg-clip-text text-transparent drop-shadow-lg">
           45&nbsp;Years of Sports Meets
@@ -69,9 +74,10 @@ const HistoryPage = () => {
         </p>
       </header>
 
+      {/* Table Container */}
       <div className="max-w-5xl mx-auto bg-white/90 rounded-2xl shadow-xl p-4 md:p-8">
         <div className="overflow-x-auto rounded-xl">
-          <table className="min-w-full text-sm md:text-base">
+          <table className="min-w-full text-sm md:text-base border-collapse">
             <thead>
               <tr className="bg-gradient-to-r from-blue-200 via-cyan-100 to-blue-100">
                 <th className="px-4 py-3 text-center font-bold text-blue-800">#</th>
@@ -81,14 +87,14 @@ const HistoryPage = () => {
               </tr>
             </thead>
             <tbody>
-              {historyData.map((row, idx) => (
+              {historyData.map((row, index) => (
                 <tr
                   key={row.id}
-                  className={
-                    idx % 2 === 0
-                      ? 'bg-blue-50/60 hover:bg-cyan-100 transition'
-                      : 'bg-pink-50 hover:bg-bronze-50 transition'
-                  }
+                  className={`transition ${
+                    index % 2 === 0
+                      ? 'bg-blue-50/60 hover:bg-cyan-100'
+                      : 'bg-pink-50 hover:bg-blue-100'
+                  }`}
                 >
                   <td className="px-4 py-2 text-center font-semibold text-cyan-700">{row.id}</td>
                   <td className="px-4 py-2 text-blue-900">{row.year}</td>
@@ -99,8 +105,6 @@ const HistoryPage = () => {
             </tbody>
           </table>
         </div>
-
-        
       </div>
     </div>
   );

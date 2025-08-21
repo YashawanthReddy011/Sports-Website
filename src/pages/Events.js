@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import API from '../config';
 
 export default function Events() {
-  const navigate = useNavigate(); // ✅ This was missing
+  const navigate = useNavigate(); // ✅ used correctly
 
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);

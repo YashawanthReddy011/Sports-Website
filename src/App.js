@@ -16,7 +16,7 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <main className="min-h-[80vh] px-4">
+      <main className="min-h-[80vh] ">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

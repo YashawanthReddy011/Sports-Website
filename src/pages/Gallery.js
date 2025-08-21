@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import ImageModal from '../components/ImageModal'; // make sure this path is correct
+import ImageModal from '../components/ImageModal'; // ✅ make sure this path is correct
 
 export default function Gallery() {
-  
-
   const images = [
     { src: "/images/im25.jpg", title: "Discipline + determination + dedication = success" },
     { src: "/images/im1.jpg", title: "2006-2007, 30th state level inter polytechnic sports meet" },
@@ -42,23 +39,25 @@ export default function Gallery() {
 
   return (
     <div
-      className="p-8 min-h-screen bg-gradient-to-br from-blue-50 via-pink-50 to-cyan-100 bg-cover bg-center bg-no-repeat"
+      className="p-8 min-h-screen bg-cover bg-center bg-no-repeat"
       style={{
         backgroundImage: `url('/images/bg-background.jpg')`,
-        backgroundColor: '#b16048ff',
+        backgroundColor: '#FFFDE6', // Cream / Light Ivory (rgb(255, 253, 230))
+        backgroundBlendMode: 'overlay',
       }}
     >
       <h2 className="text-5xl md:text-6xl font-extrabold text-center mb-6 bg-gradient-to-r from-blue-700 via-cyan-500 to-pink-500 bg-clip-text text-transparent drop-shadow-2xl tracking-tight">
         Gallery
       </h2>
 
-      <div className="marquee-container text-x1 mb-12 font-semibold text-cyan-800 bg-white/80 rounded-xl px-4 py-2 shadow">
-  <span className="marquee-text">
-    📸 More images from friends coming soon! Stay tuned for new memories and moments. &nbsp;&nbsp;&nbsp;
-   
- 
-  </span>
-</div>
+      {/* Marquee message */}
+      <div className="marquee-container text-xl mb-12 font-semibold text-cyan-800 bg-white/80 rounded-xl px-4 py-2 shadow">
+        <span className="marquee-text">
+          📸 More images from friends coming soon! Stay tuned for new memories and moments. &nbsp;&nbsp;&nbsp;
+        </span>
+      </div>
+
+      {/* Image Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-10">
         {images.map((item, index) => (
           <div
@@ -97,6 +96,7 @@ export default function Gallery() {
         ))}
       </div>
 
+      {/* Modal for full image view */}
       <ImageModal
         image={selectedIndex !== null ? images[selectedIndex] : null}
         onClose={closeImage}
