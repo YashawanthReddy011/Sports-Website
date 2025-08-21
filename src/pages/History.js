@@ -56,7 +56,7 @@ const historyData = rawHistoryData.map((entry, idx) => ({
 }));
 
 const HistoryPage = () => {
-  const navigate = useNavigate();
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 via-cyan-100 via-60% to-pink-100 p-6">

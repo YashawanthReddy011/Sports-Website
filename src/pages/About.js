@@ -2,8 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom'; // ✅ Import navigation
 
 export default function About() {
-  const navigate = useNavigate(); // ✅ Initialize navigation
-
+  
   return (
     <div className="bg-gradient-to-br from-blue-100 via-cyan-100 via-60% to-pink-100 min-h-screen">
       {/* Hero Section */}

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import ImageModal from '../components/ImageModal';
 
 const imageMap = {
@@ -20,7 +19,7 @@ const imageMap = {
 export default function Results() {
   const [selectedName, setSelectedName] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
-  const navigate = useNavigate();
+
 
   const handleNameClick = (name) => {
     if (imageMap[name]) {

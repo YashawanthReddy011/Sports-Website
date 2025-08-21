@@ -1,8 +1,25 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Import navigation
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import API from '../config';
 
 export default function Events() {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // ✅ This was missing
+
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(`${API}/api/events`)
+      .then(res => res.json())
+      .then(data => {
+        setEvents(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error(err);
+        setLoading(false);
+      });
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-100 via-yellow-50 to-cyan-100 p-8">
@@ -25,7 +42,7 @@ export default function Events() {
       </div>
 
       {/* Boys vs Girls Events Table */}
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto mb-12">
         <h3 className="text-2xl font-semibold text-green-700 mb-4">👦 Boys vs 👧 Girls Sports Events</h3>
         <table className="min-w-full table-auto bg-gradient-to-br from-yellow-50 via-green-50 to-cyan-50 shadow-lg rounded-2xl overflow-hidden">
           <thead className="bg-gradient-to-r from-green-700 via-yellow-400 to-cyan-500 text-white">
@@ -50,7 +67,32 @@ export default function Events() {
         </table>
       </div>
 
-      
+      {/* Upcoming Events from API */}
+      <div>
+        <h3 className="text-3xl font-bold mb-4">📅 Upcoming Events</h3>
+        {loading ? (
+          <div>Loading events...</div>
+        ) : events.length === 0 ? (
+          <div>No upcoming events found.</div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {events.map(ev => (
+              <div key={ev._id} className="p-4 border rounded shadow-sm bg-white">
+                <h3 className="text-xl font-semibold">{ev.title}</h3>
+                <p className="text-sm text-gray-600">{new Date(ev.date).toLocaleString()}</p>
+                <p className="mt-2">{ev.description}</p>
+                <p className="mt-2 text-sm">Venue: {ev.venue} • Capacity: {ev.capacity}</p>
+                <button 
+                  onClick={() => navigate(`/book/${ev._id}`)}
+                  className="inline-block mt-3 px-3 py-1 bg-blue-600 text-white rounded"
+                >
+                  Book
+                </button>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ImageModal from '../components/ImageModal'; // make sure this path is correct
 
 export default function Gallery() {
-  const navigate = useNavigate();
+  
 
   const images = [
     { src: "/images/im25.jpg", title: "Discipline + determination + dedication = success" },

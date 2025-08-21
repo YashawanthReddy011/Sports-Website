@@ -1,54 +1,53 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import ImageModal from '../components/ImageModal';
 
+// Achievements data
 const achievements = [
   {
-    image: '/images/result/Panticipate.jpg',
+    image: '/images/result/Panticipate.webp', // Use WebP if possible
+    fallback: '/images/result/Panticipate.jpg',
     title: 'Student Participation',
     count: '20+',
     label: 'Students',
   },
   {
-    image: '/images/result/Events.jpg',
-    title: 'Events ',
+    image: '/images/result/Events.webp',
+    fallback: '/images/result/Events.jpg',
+    title: 'Events',
     count: '11+',
     label: 'Events',
   },
 ];
 
-const bannerImages = ['/images/B1.jpg', '/images/B2.jpg'];
+// Banner images
+const bannerImages = [
+  '/images/B1.jpg',
+  '/images/B2.jpg',
+  '/images/B3.jpg',
+];
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState('');
   const [selectedTitle, setSelectedTitle] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [fade, setFade] = useState(true);
   const [bannerIndex, setBannerIndex] = useState(0);
-  const [bannerFade, setBannerFade] = useState(true);
 
-  const navigate = useNavigate();
-
+  
+  // Auto-slide achievements highlight
   useEffect(() => {
     const interval = setInterval(() => {
-      setFade(false);
-      setTimeout(() => {
-        setCurrentIndex((prev) => (prev + 1) % achievements.length);
-        setFade(true);
-      }, 400);
-    }, 2000);
+      setCurrentIndex((prev) => (prev + 1) % achievements.length);
+    }, 2500);
     return () => clearInterval(interval);
   }, []);
 
+  // Auto-slide banners
   useEffect(() => {
     const bannerInterval = setInterval(() => {
-      setBannerFade(false);
-      setTimeout(() => {
-        setBannerIndex((prev) => (prev + 1) % bannerImages.length);
-        setBannerFade(true);
-      }, 1000);
-    }, 4000);
+      setBannerIndex((prev) => (prev + 1) % bannerImages.length);
+    }, 5000);
     return () => clearInterval(bannerInterval);
   }, []);
 
@@ -61,36 +60,50 @@ export default function Home() {
   const current = achievements[currentIndex];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-100 font-sans">
+      
       {/* Header */}
       <section className="relative text-center py-16 bg-gradient-to-r from-blue-200 via-cyan-100 to-blue-300 shadow-md">
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg animate-slide-fade">
+        <motion.h1
+          className="text-4xl md:text-5xl font-extrabold mb-4 drop-shadow-lg"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
           Welcome to{' '}
-          <span className="bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-700 bg-clip-text text-transparent animate-shine">
+          <span className="bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-700 bg-clip-text text-transparent">
             KPT Mangalore Sports
           </span>
-        </h1>
-        <p className="text-lg md:text-xl text-gray-700 font-medium tracking-wide max-w-2xl mx-auto">
+        </motion.h1>
+        <motion.p
+          className="text-lg md:text-xl text-gray-700 font-medium tracking-wide max-w-2xl mx-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+        >
           Showcasing the{' '}
           <span className="text-blue-500 font-bold">spirit</span>,{' '}
           <span className="text-cyan-500 font-bold">strength</span>, and{' '}
           <span className="text-blue-700 font-bold">sportsmanship</span> of our
           students
-        </p>
+        </motion.p>
       </section>
 
       {/* Banner */}
-      <section className="w-full overflow-hidden relative h-[350px] md:h-[500px] flex items-center justify-center">
-        {bannerImages.map((img, idx) => (
-          <img
-            key={img}
-            src={img}
+      <section className="w-full overflow-hidden relative h-[350px] md:h-[500px] flex items-center justify-center rounded-b-3xl shadow-lg">
+        <AnimatePresence>
+          <motion.img
+            key={bannerImages[bannerIndex]}
+            src={bannerImages[bannerIndex]}
             alt="KPT Sports Banner"
-            className={`w-full h-full object-cover absolute top-0 left-0 transition-opacity duration-1000 rounded-b-3xl shadow-lg ${
-              idx === bannerIndex && bannerFade ? 'opacity-100' : 'opacity-0'
-            }`}
+            loading="lazy"
+            className="w-full h-full object-cover absolute top-0 left-0"
+            initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2 }}
           />
-        ))}
+        </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent rounded-b-3xl" />
         <div className="relative z-10 text-white text-center">
           <h2 className="text-2xl md:text-3xl font-bold drop-shadow-lg">
@@ -107,7 +120,7 @@ export default function Home() {
         className="py-16 px-4 md:px-0 bg-cover bg-center"
         style={{
           backgroundImage: "url('/images/bg-home.jpg')",
-          backgroundColor: '#e0f2fe',
+          backgroundColor: '#0c95c3ff',
         }}
       >
         <h2 className="text-3xl font-semibold text-center mb-12 text-blue-700 drop-shadow-lg">
@@ -115,36 +128,40 @@ export default function Home() {
         </h2>
         <div className="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 justify-items-center">
           {achievements.map((ach, idx) => (
-            <div
+            <motion.div
               key={ach.title}
-              className={`bg-white/90 text-center p-6 rounded-2xl shadow-lg cursor-pointer hover:scale-105 hover:bg-blue-100 transition-all duration-500 ${
-                idx === currentIndex && fade ? 'ring-4 ring-cyan-300' : ''
+              className={`backdrop-blur-md bg-white/80 text-center p-6 rounded-2xl shadow-lg cursor-pointer transition-all duration-500 ${
+                idx === currentIndex ? 'ring-4 ring-cyan-300 animate-pulse' : ''
               }`}
+              whileHover={{ scale: 1.05, y: -5 }}
               onClick={() => handleClick(ach.image, ach.title)}
               style={{ minHeight: 260 }}
             >
-              <img
-                src={ach.image}
-                alt={ach.title}
-                className="mx-auto h-24 w-24 object-cover rounded-full mb-4 border-4 border-blue-200 shadow"
-              />
+              <picture>
+                <source srcSet={ach.image} type="image/webp" />
+                <img
+                  src={ach.fallback}
+                  alt={ach.title}
+                  loading="lazy"
+                  className="mx-auto h-24 w-24 object-cover rounded-full mb-4 border-4 border-blue-200 shadow"
+                />
+              </picture>
               <h3 className="text-2xl font-bold text-blue-800 mb-1">{ach.count}</h3>
               <p className="text-lg text-gray-700">{ach.label}</p>
               <div className="mt-2 text-base font-medium text-cyan-700">{ach.title}</div>
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Buttons */}
         <div className="flex justify-center mt-10 gap-4">
-          <button
+          <motion.button
             className="px-6 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-full font-semibold shadow hover:from-cyan-500 hover:to-blue-500 transition"
+            whileTap={{ scale: 0.95 }}
             onClick={() => handleClick(current.image, current.title)}
           >
             View Highlight
-          </button>
-
-          
+          </motion.button>
         </div>
       </section>
 
