@@ -110,7 +110,7 @@ export default function Home() {
         </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent rounded-b-3xl" />
         <div className="relative z-10 text-white text-center">
-          <span className="text-2xl md:text-3xl font-extrabold" style={{ color: '#59935aff' }}>
+          <span className="text-2xl md:text-3xl font-extrabold" style={{ color: '#FFD700' }}>
             Unleashing Potential, One Victory at a Time – Explore our achievements and vibrant sports culture
           </span>
         </div>
