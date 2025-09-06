@@ -37,7 +37,7 @@ export default function Navbar() {
           <NavLink to="/gallery" className={navItemClass}>Gallery</NavLink>
           <NavLink to="/achievements" className={navItemClass}>Achievements</NavLink>
           <NavLink to="/results" className={navItemClass}>Results</NavLink>
-          <NavLink to="/contact" className={navItemClass}>Contact</NavLink>
+  
         </div>
       </div>
     </nav>

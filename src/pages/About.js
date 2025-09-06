@@ -44,7 +44,7 @@ export default function About() {
             <div className="text-lg font-medium text-pink-700">Points in 44th State Meet</div>
           </div>
           <div className="bg-gradient-to-br from-cyan-200 via-blue-100 to-blue-400 rounded-xl shadow-lg p-6 text-center flex flex-col justify-end h-full min-h-[140px]">
-            <div className="text-4xl font-bold text-white mb-2 mt-4 drop-shadow-lg">45th</div>
+            <div className="text-4xl font-bold text-blue-700 mb-2 mt-4">45th</div>
             <div className="text-lg font-medium text-blue-900">
               State-level Inter-Polytechnic
             </div>

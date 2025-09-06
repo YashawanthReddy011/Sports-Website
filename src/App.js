@@ -9,7 +9,6 @@ import Events from './pages/Events';
 import Gallery from './pages/Gallery';
 import Results from './pages/Results';
 import Achievements from './pages/Achievements';
-import Contact from './pages/Contact';
 import History from './pages/History';
 
 function App() {
@@ -24,7 +23,6 @@ function App() {
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/results" element={<Results />} />
           <Route path="/achievements" element={<Achievements />} />
-          <Route path="/contact" element={<Contact />} />
            <Route path="/history" element={<History />} />
         </Routes>
       </main>
