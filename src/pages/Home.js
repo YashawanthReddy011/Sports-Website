@@ -1,44 +1,35 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import ImageModal from '../components/ImageModal';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import ImageModal from "../components/ImageModal";
 
 // Achievements data
 const achievements = [
   {
-<<<<<<< HEAD
-    image: '/images/result/Panticipate.jpg', // Use WebP if possible
-=======
-    image: '/images/result/Panticipate.jpg', 
->>>>>>> 93f384cb89ac3a36b9b23f7d4f8d20bf329fc3b2
-    fallback: '/images/result/Panticipate.jpg',
-    title: 'Student Participation',
-    count: '20+',
-    label: 'Students',
+    image: "/images/result/Panticipate.jpg", // main image
+    fallback: "/images/result/Panticipate.jpg", // fallback for browsers without webp
+    title: "Student Participation",
+    count: "20+",
+    label: "Students",
   },
   {
-    image: '/images/result/Events.jpg',
-    fallback: '/images/result/Events.jpg',
-    title: 'Events',
-    count: '11+',
-    label: 'Events',
+    image: "/images/result/Events.jpg",
+    fallback: "/images/result/Events.jpg",
+    title: "Events",
+    count: "11+",
+    label: "Events",
   },
 ];
 
 // Banner images
-const bannerImages = [
-  '/images/B1.jpg',
-  '/images/B2.jpg',
-  '/images/B3.jpg',
-];
+const bannerImages = ["/images/B1.jpg", "/images/B2.jpg", "/images/B3.jpg"];
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState('');
-  const [selectedTitle, setSelectedTitle] = useState('');
+  const [selectedImage, setSelectedImage] = useState("");
+  const [selectedTitle, setSelectedTitle] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [bannerIndex, setBannerIndex] = useState(0);
 
-  
   // Auto-slide achievements highlight
   useEffect(() => {
     const interval = setInterval(() => {
@@ -67,7 +58,7 @@ export default function Home() {
     <div
       className="min-h-screen font-sans"
       style={{
-        backgroundColor: '#FFFDE6', // Cream / Light Ivory (rgb(255, 253, 230))
+        backgroundColor: "#FFFDE6", // Cream / Light Ivory
       }}
     >
       {/* Header */}
@@ -78,7 +69,7 @@ export default function Home() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Welcome to{' '}
+          Welcome to{" "}
           <span className="bg-gradient-to-r from-blue-500 via-cyan-400 to-blue-700 bg-clip-text text-transparent">
             KPT Mangalore Sports
           </span>
@@ -89,9 +80,9 @@ export default function Home() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          Showcasing the{' '}
-          <span className="text-blue-500 font-bold">spirit</span>,{' '}
-          <span className="text-cyan-500 font-bold">strength</span>, and{' '}
+          Showcasing the{" "}
+          <span className="text-blue-500 font-bold">spirit</span>,{" "}
+          <span className="text-cyan-500 font-bold">strength</span>, and{" "}
           <span className="text-blue-700 font-bold">sportsmanship</span> of our
           students
         </motion.p>
@@ -113,17 +104,14 @@ export default function Home() {
           />
         </AnimatePresence>
         <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-transparent to-transparent rounded-b-3xl" />
-        <div className="relative z-10 text-white text-center">
-         
-        </div>
       </section>
 
       {/* Achievements */}
-      <section 
+      <section
         className="py-16 px-4 md:px-0 bg-cover bg-center"
         style={{
           backgroundImage: "url('/images/bg-home.jpg')",
-          backgroundColor: '#0c95c3ff',
+          backgroundColor: "#0c95c3ff",
         }}
       >
         <h2 className="text-3xl font-semibold text-center mb-12 text-blue-700 drop-shadow-lg">
@@ -134,7 +122,7 @@ export default function Home() {
             <motion.div
               key={ach.title}
               className={`backdrop-blur-md bg-white/80 text-center p-6 rounded-2xl shadow-lg cursor-pointer transition-all duration-500 ${
-                idx === currentIndex ? 'ring-4 ring-cyan-300 animate-pulse' : ''
+                idx === currentIndex ? "ring-4 ring-cyan-300 animate-pulse" : ""
               }`}
               whileHover={{ scale: 1.05, y: -5 }}
               onClick={() => handleClick(ach.image, ach.title)}
@@ -149,14 +137,18 @@ export default function Home() {
                   className="mx-auto h-24 w-24 object-cover rounded-full mb-4 border-4 border-blue-200 shadow"
                 />
               </picture>
-              <h3 className="text-2xl font-bold text-white mb-1 drop-shadow-lg">{ach.count}</h3>
+              <h3 className="text-2xl font-bold text-white mb-1 drop-shadow-lg">
+                {ach.count}
+              </h3>
               <p className="text-lg text-white drop-shadow">{ach.label}</p>
-              <div className="mt-2 text-base font-medium text-white drop-shadow">{ach.title}</div>
+              <div className="mt-2 text-base font-medium text-white drop-shadow">
+                {ach.title}
+              </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Buttons */}
+        {/* Button */}
         <div className="flex justify-center mt-10 gap-4">
           <motion.button
             className="px-6 py-2 bg-gradient-to-r from-blue-500 to-cyan-500 text-white rounded-full font-semibold shadow hover:from-cyan-500 hover:to-blue-500 transition"
