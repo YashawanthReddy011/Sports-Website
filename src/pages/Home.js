@@ -5,7 +5,11 @@ import ImageModal from '../components/ImageModal';
 // Achievements data
 const achievements = [
   {
+<<<<<<< HEAD
     image: '/images/result/Panticipate.jpg', // Use WebP if possible
+=======
+    image: '/images/result/Panticipate.jpg', 
+>>>>>>> 93f384cb89ac3a36b9b23f7d4f8d20bf329fc3b2
     fallback: '/images/result/Panticipate.jpg',
     title: 'Student Participation',
     count: '20+',
